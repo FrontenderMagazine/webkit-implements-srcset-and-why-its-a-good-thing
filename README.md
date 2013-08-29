@@ -1,4 +1,4 @@
-webkit-implements-srcset-and-why-its-a-good-thing
-=================================================
+Теперь WebKit поддерживает srcset, и это хорошо!
+================================================
 
-WebKit Has Implemented srcset, And It’s A Good Thing
+
