@@ -8,7 +8,7 @@ As with all matters pertaining to “responsive images”: it’s complicated, a
 
 As originally proposed, the `srcset` attribute allowed developers to specify a list of sources for an image attribute, to be delivered based on the pixel density of the user’s display:
 
-   <img src="low-res.jpg" srcset="high-res.jpg 2x">
+      <img src="low-res.jpg" srcset="high-res.jpg 2x">
 
 Not too scary, this markup. In plain English:
 
@@ -50,25 +50,25 @@ The version of `srcset` implemented by WebKit matches the original proposed use 
 
 While this implementation matches the original `srcset` proposal, the current `srcset` spec attempts to expand the syntax to cover some of the [use cases][7] that the `picture` element fulfills, using a microsyntax that performs some—but nowhere near all—of the functions of media queries.
 
-   <img src="fallback.jpg" srcset="small.jpg 640w 1x, small-hd.jpg 640w 2x, large.jpg 1x, large-hd.jpg 2x" alt="…">
+      <img src="fallback.jpg" srcset="small.jpg 640w 1x, small-hd.jpg 640w 2x, large.jpg 1x, large-hd.jpg 2x" alt="…">
 
 In our opinion not ideal, this markup pattern. We’re restricted to the equivalent of `max-width` media queries, pixels, and an inscrutable microsyntax, all for the sake of duplicating the function of media queries. Fortunately for us, neither Web developers nor browser reps are particularly fond of this overextended syntax—hopefully, it will never see the light of day.
 
 The `picture` element exists to address these use cases using a more flexible—and familiar—syntax. `picture` uses `media` attributes on `source` elements, similar to the `video` element. This allows us to target image sources to a combination of factors: viewport height and/or width, in pixels or `em`s, using either `min` or `max` values—just like media queries in our CSS.
 
-   <picture>
-       <source src="med.jpg" media="(min-width: 40em)" />
-       <source src="sm.jpg" />
-       <img src="fallback.jpg" alt="" />
-   </picture>
+      <picture>
+          <source src="med.jpg" media="(min-width: 40em)" />
+          <source src="sm.jpg" />
+          <img src="fallback.jpg" alt="" />
+      </picture>
 
 The `picture` specification was written with this reduced `srcset` syntax in mind, so it could be used on `picture`’s `source` elements as well as `img` elements.
 
-   <picture>
-       <source srcset="med.jpg 1x, med-hd.jpg 2x" media="(min-width: 40em)" />
-       <source srcset="sm.jpg 1x, sm-hd.jpg 2x" />
-       <img src="fallback.jpg" alt="" />
-   </picture>
+      <picture>
+          <source srcset="med.jpg 1x, med-hd.jpg 2x" media="(min-width: 40em)" />
+          <source srcset="sm.jpg 1x, sm-hd.jpg 2x" />
+          <img src="fallback.jpg" alt="" />
+      </picture>
 
 In concert, the two markup patterns give us an incredible amount of flexibility over what image sources we serve to users, depending on their context.
 
