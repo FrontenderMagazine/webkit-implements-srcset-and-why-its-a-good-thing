@@ -177,7 +177,7 @@ Grab it, you won’t be disappointed.
    [3]: http://bostonglobe.com
    [4]: http://alistapart.com/article/responsive-images-how-they-almost-worked-and-what-we-need
    [5]: http://nicolasgallagher.com/responsive-images-using-css3
-   [6]: use-case.png
+   [6]: img/use-case.png
    [7]: http://usecases.responsiveimages.org
    [8]: http://responsiveimages.org
    [9]: http://twitter.com/respimg
